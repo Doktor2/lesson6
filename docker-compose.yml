@@ -1,0 +1,7 @@
+version: '3.3'
+
+services:
+  flask_app:
+    image: doktor/flask_app
+    ports: 
+    - 5515:5000
