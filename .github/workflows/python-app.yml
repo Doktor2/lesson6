@@ -54,4 +54,13 @@ jobs:
       with:
         push: true
         tags: doktor2/flask_app:latest
-      
+    - name: Restart serice
+      uses: fifsky/ssh-action@master
+      with:
+        command: |
+          cd mikailov
+          docker-compose --no-ansi pull
+          docker-compose --no-ansi up -d
+        host: ${{ secrets.SSH_HOST }}
+        user: student
+        pass: ${{ secrets.SSH_PASSWORD}}  
